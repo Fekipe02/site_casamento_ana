@@ -1,0 +1,126 @@
+/* Estilos Personalizados - Casamento Ana Luiza e Caio Henrique */
+
+:root {
+  --color-ivory: #FCF9F2;
+  --color-ivory-light: #FFFFFF;
+  --color-gold: #C5A059;
+  --color-gold-light: #DFC282;
+  --color-gold-dark: #A88238;
+  --color-bronze: #5B492A;
+  --color-bronze-light: #8A724B;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-ivory);
+  color: var(--color-bronze);
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Tipografias */
+.font-script {
+  font-family: 'Alex Brush', cursive;
+}
+
+.font-editorial {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-sans-luxury {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Efeito de Dourado Metalizado em Texto */
+.text-gold-metallic {
+  background: linear-gradient(135deg, #A88238 0%, #E3C578 35%, #C5A059 70%, #94712A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-solid {
+  color: var(--color-gold);
+}
+
+.border-gold {
+  border-color: var(--color-gold);
+}
+
+.bg-gold {
+  background-color: var(--color-gold);
+}
+
+/* Fundo com textura e brilho sutil */
+.bg-wedding-paper {
+  background-color: #FCF9F2;
+  background-image: 
+    radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.9) 0%, transparent 60%),
+    radial-gradient(circle at 10% 90%, rgba(197, 160, 89, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(197, 160, 89, 0.04) 0%, transparent 40%);
+}
+
+/* Sombra suave e elegante para o convite */
+.invitation-card-shadow {
+  box-shadow: 
+    0 10px 30px -5px rgba(91, 73, 42, 0.08),
+    0 25px 50px -12px rgba(91, 73, 42, 0.12),
+    0 0 0 1px rgba(197, 160, 89, 0.18);
+}
+
+/* Moldura dourada com cantos curvos invertidos (SVG e CSS) */
+.frame-corner {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  pointer-events: none;
+}
+
+.frame-corner-tl { top: 0; left: 0; }
+.frame-corner-tr { top: 0; right: 0; }
+.frame-corner-bl { bottom: 0; left: 0; }
+.frame-corner-br { bottom: 0; right: 0; }
+
+/* Botões com efeito sutil de brilho */
+.btn-gold {
+  background: linear-gradient(135deg, #C5A059 0%, #B89249 100%);
+  color: #FFFFFF;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(197, 160, 89, 0.25);
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #D4AF67 0%, #A88238 100%);
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-outline-gold {
+  border: 1px solid #C5A059;
+  color: #5B492A;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+  background-color: #C5A059;
+  color: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(197, 160, 89, 0.25);
+}
+
+/* Animações sutis */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+.animate-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casamento Ana Luiza e Caio Henrique | Convite Oficial</title>
+  <meta name="description" content="Celebração do casamento de Ana Luiza e Caio Henrique. 09 de Fevereiro de 2026 às 16:00 no Espaço Wiiliam - Brasília, DF.">
+  
+  <!-- OpenGraph / Social Meta Tags -->
+  <meta property="og:title" content="Casamento Ana Luiza & Caio Henrique">
+  <meta property="og:description" content="09 de Fevereiro de 2026 às 16:00 • Espaço Wiiliam, Brasília - DF">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wedding: {
+              ivory: '#FCF9F2',
+              card: '#FFFFFF',
+              gold: '#C5A059',
+              'gold-light': '#DFC282',
+              'gold-dark': '#A88238',
+              bronze: '#5B492A',
+              'bronze-light': '#8A724B',
+              'bronze-subtle': '#A99472',
+            }
+          },
+          fontFamily: {
+            script: ['"Alex Brush"', 'cursive'],
+            editorial: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Montserrat"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-wedding-paper text-wedding-bronze min-h-screen flex flex-col font-sans antialiased selection:bg-[#C5A059]/20 selection:text-[#5B492A]">
+
+  <!-- ============================================================== -->
+  <!-- NAVBAR FIXA MINIMALISTA                                        -->
+  <!-- ============================================================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#FCF9F2]/90 backdrop-blur-md border-b border-[#C5A059]/20 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 sm:h-20 flex items-center justify-between">
+      
+      <!-- Monograma AC Navbar -->
+      <a href="#inicio" class="flex items-center gap-3 group focus:outline-none" aria-label="Início - Ana Luiza e Caio Henrique">
+        <svg class="w-10 h-10 text-wedding-gold transition-transform duration-300 group-hover:scale-105" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="46" stroke="#C5A059" stroke-width="1.2" stroke-dasharray="2 2" opacity="0.6"/>
+          <circle cx="50" cy="50" r="42" stroke="#C5A059" stroke-width="0.8"/>
+          <!-- Letra A refinada -->
+          <path d="M 40 72 L 52 28 L 56 28 L 68 72 M 43 60 L 65 60" stroke="#C5A059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Letra C entrelaçada -->
+          <path d="M 64 36 C 46 33 34 44 34 54 C 34 66 46 72 64 70" stroke="#A88238" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <span class="font-editorial text-lg md:text-xl tracking-[0.15em] uppercase text-wedding-bronze font-medium hidden sm:inline">
+          Ana Luiza &amp; Caio
+        </span>
+      </a>
+
+      <!-- Menu Desktop -->
+      <nav class="hidden md:flex items-center space-x-8 text-xs tracking-[0.2em] uppercase font-medium text-wedding-bronze">
+        <a href="#inicio" class="hover:text-wedding-gold transition-colors duration-200">Convite</a>
+        <a href="#historia" class="hover:text-wedding-gold transition-colors duration-200">Nossa História</a>
+        <a href="#local" class="hover:text-wedding-gold transition-colors duration-200">O Grande Dia</a>
+        <a href="#presentes" class="hover:text-wedding-gold transition-colors duration-200">Presentes</a>
+        <a href="#rsvp" class="px-5 py-2.5 rounded-full btn-gold text-white tracking-[0.18em] shadow-sm hover:shadow transition-all duration-300">
+          Confirmar Presença
+        </a>
+      </nav>
+
+      <!-- Botão Hambúrguer Mobile -->
+      <div class="flex items-center gap-3 md:hidden">
+        <a href="#rsvp" class="px-3.5 py-1.5 rounded-full btn-gold text-white text-[11px] tracking-[0.15em] font-medium uppercase">
+          RSVP
+        </a>
+        <button id="mobile-menu-toggle" type="button" class="p-2 text-wedding-bronze hover:text-wedding-gold focus:outline-none" aria-label="Abrir menu" aria-expanded="false">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Dropdown Mobile -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#FCF9F2] border-b border-[#C5A059]/20 px-6 py-6 space-y-4 text-center tracking-[0.2em] uppercase text-xs font-medium">
+      <a href="#inicio" class="block mobile-nav-link text-wedding-bronze hover:text-wedding-gold py-1">Convite</a>
+      <a href="#historia" class="block mobile-nav-link text-wedding-bronze hover:text-wedding-gold py-1">Nossa História</a>
+      <a href="#local" class="block mobile-nav-link text-wedding-bronze hover:text-wedding-gold py-1">O Grande Dia</a>
+      <a href="#presentes" class="block mobile-nav-link text-wedding-bronze hover:text-wedding-gold py-1">Presentes</a>
+      <a href="#rsvp" class="block mobile-nav-link text-wedding-gold font-semibold py-1">Confirmar Presença (RSVP)</a>
+    </div>
+  </header>
+
+  <!-- ============================================================== -->
+  <!-- WIDGET FLUTUANTE DE ÁUDIO / MÚSICA DO CONVITE                 -->
+  <!-- ============================================================== -->
+  <div class="fixed bottom-5 left-5 z-40">
+    <button id="music-toggle-btn" class="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white/90 backdrop-blur border border-[#C5A059]/40 shadow-md text-wedding-bronze hover:border-wedding-gold text-xs tracking-wider transition-all duration-300 group">
+      <svg id="music-icon" class="w-4 h-4 text-wedding-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 18V5l12-2v13"></path>
+        <circle cx="6" cy="18" r="3"></circle>
+        <circle cx="18" cy="16" r="3"></circle>
+      </svg>
+      <span id="music-text" class="font-editorial text-sm tracking-wide">Música do Convite</span>
+    </button>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- ETAPA 1: SEÇÃO HERO / CONVITE DIGITAL                         -->
+  <!-- ============================================================== -->
+  <main class="flex-grow pt-24 sm:pt-28 pb-16 px-3 sm:px-6">
+    <section id="inicio" class="max-w-4xl mx-auto relative">
+
+      <!-- Ambient Glow de Fundo -->
+      <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-72 sm:w-96 h-72 sm:h-96 bg-[#C5A059]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- ============================================================ -->
+      <!-- O CARTÃO OFICIAL DO CONVITE (PAPEL FINO DE CASAMENTO)        -->
+      <!-- ============================================================ -->
+      <div class="relative bg-[#FCF9F2] rounded-lg invitation-card-shadow p-6 sm:p-12 md:p-16 border border-[#C5A059]/30 transition-all duration-500 overflow-hidden">
+        
+        <!-- ============================================================ -->
+        <!-- MOLDURA DOURADA COM CANTOS CURVOS INVERTIDOS (FRAME PRECISO) -->
+        <!-- ============================================================ -->
+        <div class="absolute inset-3 sm:inset-6 md:inset-8 pointer-events-none z-10" aria-hidden="true">
+          <!-- Linhas Externas -->
+          <div class="absolute top-0 left-[36px] right-[36px] border-t border-[#C5A059]/80"></div>
+          <div class="absolute bottom-0 left-[36px] right-[36px] border-b border-[#C5A059]/80"></div>
+          <div class="absolute left-0 top-[36px] bottom-[36px] border-l border-[#C5A059]/80"></div>
+          <div class="absolute right-0 top-[36px] bottom-[36px] border-r border-[#C5A059]/80"></div>
+
+          <!-- Linhas Internas Decorativas (Dupla Borda Fina) -->
+          <div class="absolute top-[4px] left-[36px] right-[36px] border-t border-[#C5A059]/35"></div>
+          <div class="absolute bottom-[4px] left-[36px] right-[36px] border-b border-[#C5A059]/35"></div>
+          <div class="absolute left-[4px] top-[36px] bottom-[36px] border-l border-[#C5A059]/35"></div>
+          <div class="absolute right-[4px] top-[36px] bottom-[36px] border-r border-[#C5A059]/35"></div>
+
+          <!-- Canto Superior Esquerdo Invertido -->
+          <svg class="absolute top-0 left-0 w-[36px] h-[36px] text-wedding-gold" viewBox="0 0 36 36" fill="none">
+            <path d="M 0,36 A 36,36 0 0,0 36,0" stroke="#C5A059" stroke-width="1.2"/>
+            <path d="M 4,36 A 32,32 0 0,0 36,4" stroke="#C5A059" stroke-width="0.6" opacity="0.6"/>
+            <circle cx="18" cy="18" r="1.5" fill="#C5A059"/>
+          </svg>
+
+          <!-- Canto Superior Direito Invertido -->
+          <svg class="absolute top-0 right-0 w-[36px] h-[36px] text-wedding-gold" viewBox="0 0 36 36" fill="none">
+            <path d="M 0,0 A 36,36 0 0,1 36,36" stroke="#C5A059" stroke-width="1.2"/>
+            <path d="M 0,4 A 32,32 0 0,1 32,36" stroke="#C5A059" stroke-width="0.6" opacity="0.6"/>
+            <circle cx="18" cy="18" r="1.5" fill="#C5A059"/>
+          </svg>
+
+          <!-- Canto Inferior Esquerdo Invertido -->
+          <svg class="absolute bottom-0 left-0 w-[36px] h-[36px] text-wedding-gold" viewBox="0 0 36 36" fill="none">
+            <path d="M 0,0 A 36,36 0 0,0 36,36" stroke="#C5A059" stroke-width="1.2"/>
+            <path d="M 4,0 A 32,32 0 0,0 36,32" stroke="#C5A059" stroke-width="0.6" opacity="0.6"/>
+            <circle cx="18" cy="18" r="1.5" fill="#C5A059"/>
+          </svg>
+
+          <!-- Canto Inferior Direito Invertido -->
+          <svg class="absolute bottom-0 right-0 w-[36px] h-[36px] text-wedding-gold" viewBox="0 0 36 36" fill="none">
+            <path d="M 36,0 A 36,36 0 0,1 0,36" stroke="#C5A059" stroke-width="1.2"/>
+            <path d="M 32,0 A 32,32 0 0,1 0,32" stroke="#C5A059" stroke-width="0.6" opacity="0.6"/>
+            <circle cx="18" cy="18" r="1.5" fill="#C5A059"/>
+          </svg>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- ILUSTRAÇÃO LINE-ART DE TULIPA (CANTO INFERIOR DIREITO)       -->
+        <!-- ============================================================ -->
+        <div class="absolute bottom-6 right-6 sm:bottom-8 sm:right-9 pointer-events-none z-10 opacity-85 sm:opacity-95 select-none" aria-hidden="true">
+          <svg class="w-24 h-36 sm:w-32 sm:h-48 md:w-36 md:h-52 text-wedding-gold" viewBox="0 0 140 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="goldTulip" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#A88238" />
+                <stop offset="50%" stop-color="#C5A059" />
+                <stop offset="100%" stop-color="#DFC282" />
+              </linearGradient>
+            </defs>
+            <!-- Caule delicado -->
+            <path d="M 72 190 Q 75 140 70 85" stroke="url(#goldTulip)" stroke-width="1.4" stroke-linecap="round"/>
+            
+            <!-- Folha alongada esquerda -->
+            <path d="M 72 175 C 50 160 40 120 48 95 C 49 118 60 145 71 160" stroke="url(#goldTulip)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+            <path d="M 48 95 Q 56 122 66 142" stroke="url(#goldTulip)" stroke-width="0.7" opacity="0.6"/>
+
+            <!-- Folha direita sutil -->
+            <path d="M 71 145 C 88 135 98 115 102 90 C 97 108 85 125 70 135" stroke="url(#goldTulip)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+            
+            <!-- Botão da Tulipa (Pétala central e laterais fechadas) -->
+            <!-- Pétala esquerda -->
+            <path d="M 70 85 C 52 82 48 55 58 42 C 65 33 70 34 70 45 C 70 60 68 75 70 85 Z" stroke="url(#goldTulip)" stroke-width="1.3" stroke-linejoin="round" fill="rgba(197,160,89,0.03)"/>
+            
+            <!-- Pétala direita -->
+            <path d="M 70 85 C 88 82 92 55 82 42 C 75 33 70 34 70 45 C 70 60 72 75 70 85 Z" stroke="url(#goldTulip)" stroke-width="1.3" stroke-linejoin="round" fill="rgba(197,160,89,0.03)"/>
+
+            <!-- Pétala central de topo -->
+            <path d="M 64 48 C 65 32 70 25 75 32 C 78 36 78 46 76 52" stroke="url(#goldTulip)" stroke-width="1.1" stroke-linecap="round"/>
+            
+            <!-- Linhas de textura das pétalas -->
+            <path d="M 58 65 Q 64 52 68 45" stroke="url(#goldTulip)" stroke-width="0.8" opacity="0.7"/>
+            <path d="M 82 65 Q 76 52 72 45" stroke="url(#goldTulip)" stroke-width="0.8" opacity="0.7"/>
+          </svg>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- CONTEÚDO EDITORIAL DO CONVITE                                -->
+        <!-- ============================================================ -->
+        <div class="relative z-20 text-center max-w-2xl mx-auto py-2 sm:py-4">
+          
+          <!-- 1. Monograma AC Centralizado -->
+          <div class="flex justify-center mb-6 sm:mb-8">
+            <div class="relative w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
+              <svg class="w-full h-full text-wedding-gold animate-glow" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Círculo externo fino e delicado -->
+                <circle cx="60" cy="60" r="56" stroke="#C5A059" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>
+                <circle cx="60" cy="60" r="52" stroke="#C5A059" stroke-width="0.8" opacity="0.8"/>
+                <circle cx="60" cy="60" r="48" stroke="#C5A059" stroke-width="0.4" opacity="0.4"/>
+                
+                <!-- Letra A Caligráfica em Dourado -->
+                <path d="M 45 88 L 60 30 L 65 30 L 80 88 M 49 72 L 76 72" 
+                      stroke="#C5A059" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                
+                <!-- Letra C Entrelaçada com a barra do A -->
+                <path d="M 76 42 C 50 38 34 52 34 65 C 34 80 50 88 74 84" 
+                      stroke="#A88238" stroke-width="2.8" stroke-linecap="round"/>
+                
+                <!-- Pequenos losangos nos pontos cardeais do monograma -->
+                <polygon points="60,2 62,4 60,6 58,4" fill="#C5A059"/>
+                <polygon points="60,114 62,116 60,118 58,116" fill="#C5A059"/>
+                <polygon points="2,60 4,62 6,60 4,58" fill="#C5A059"/>
+                <polygon points="114,60 116,62 118,60 116,58" fill="#C5A059"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 2. Versículo Bíblico Oficial -->
+          <div class="mb-7 sm:mb-9 px-2 sm:px-6">
+            <span class="block text-[11px] sm:text-xs font-semibold tracking-[0.25em] text-wedding-gold uppercase mb-2">
+              EFÉSIOS 5: 31
+            </span>
+            <p class="font-sans text-[11px] sm:text-[13px] leading-relaxed tracking-[0.16em] uppercase text-wedding-bronze font-light max-w-xl mx-auto">
+              “Por isso deixará o homem seu pai e sua mãe, e se unirá a sua mulher; e serão dois numa só carne.”
+            </p>
+          </div>
+
+          <!-- Divisor Delicado -->
+          <div class="flex items-center justify-center gap-3 my-6 sm:my-8 opacity-70">
+            <div class="w-12 sm:w-20 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]"></div>
+            <svg class="w-3.5 h-3.5 text-wedding-gold" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12,2 15,9 22,12 15,15 12,22 9,15 2,12 9,9"/>
+            </svg>
+            <div class="w-12 sm:w-20 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]"></div>
+          </div>
+
+          <!-- 3. Texto de Abertura -->
+          <p class="font-editorial italic text-base sm:text-lg text-wedding-bronze-light mb-6 tracking-wide">
+            Com muita alegria e com a benção de Deus e de seus pais
+          </p>
+
+          <!-- 4. Nomes dos Pais em Duas Colunas -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8 my-6 sm:my-8 px-4 text-xs sm:text-[13px] tracking-[0.15em] uppercase text-wedding-bronze">
+            
+            <!-- Pais da Noiva -->
+            <div class="space-y-1 sm:text-right sm:pr-4 sm:border-r border-[#C5A059]/30">
+              <span class="block text-[10px] tracking-[0.2em] text-wedding-gold font-medium mb-1">Pais da Noiva</span>
+              <p class="font-medium text-wedding-bronze">Wesley Gomes Bezerra</p>
+              <p class="font-medium text-wedding-bronze">Glícia Grazielle F. A. Bezerra</p>
+            </div>
+
+            <!-- Pais do Noivo -->
+            <div class="space-y-1 sm:text-left sm:pl-4">
+              <span class="block text-[10px] tracking-[0.2em] text-wedding-gold font-medium mb-1">Pais do Noivo</span>
+              <p class="font-medium text-wedding-bronze">Carlos Henrique P. Santos</p>
+              <p class="font-medium text-wedding-bronze">Creuzamar Passos Santos</p>
+            </div>
+
+          </div>
+
+          <!-- 5. Texto de Conexão -->
+          <p class="font-editorial italic text-base sm:text-lg text-wedding-bronze-light my-6 sm:my-8 tracking-wide">
+            Convidam para a celebração do seu casamento
+          </p>
+
+          <!-- 6. Nomes dos Noivos em Destaque Absoluto -->
+          <div class="my-6 sm:my-10">
+            <h1 class="font-script text-5xl sm:text-7xl md:text-8xl text-gold-metallic leading-[1.15] py-2 drop-shadow-sm select-none">
+              Ana Luiza
+            </h1>
+            <span class="block font-editorial italic text-2xl sm:text-3xl text-wedding-gold my-1 sm:my-2">&amp;</span>
+            <h2 class="font-script text-5xl sm:text-7xl md:text-8xl text-gold-metallic leading-[1.15] py-2 drop-shadow-sm select-none">
+              Caio Henrique
+            </h2>
+          </div>
+
+          <!-- Divisor Delicado -->
+          <div class="flex items-center justify-center gap-3 my-6 sm:my-8 opacity-70">
+            <div class="w-12 sm:w-20 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]"></div>
+            <svg class="w-3.5 h-3.5 text-wedding-gold" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12,2 15,9 22,12 15,15 12,22 9,15 2,12 9,9"/>
+            </svg>
+            <div class="w-12 sm:w-20 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]"></div>
+          </div>
+
+          <!-- 7. Data, Horário e Local Oficial -->
+          <div class="space-y-4 my-7 sm:my-9">
+            
+            <!-- Data em Bloco Editorial -->
+            <div class="inline-flex items-center justify-center gap-3 sm:gap-6 border-y border-[#C5A059]/40 py-2 sm:py-3 px-4 sm:px-8">
+              <span class="text-xs sm:text-sm tracking-[0.2em] uppercase text-wedding-bronze font-medium">Segunda-feira</span>
+              <span class="text-2xl sm:text-3xl font-editorial font-bold text-wedding-gold tracking-widest">09</span>
+              <span class="text-xs sm:text-sm tracking-[0.2em] uppercase text-wedding-bronze font-medium">Fevereiro • 2026</span>
+            </div>
+
+            <p class="text-xs sm:text-sm tracking-[0.25em] uppercase font-semibold text-wedding-gold">
+              ÀS 16:00 HORAS
+            </p>
+
+            <!-- Local Oficial com Ortografia Correta (ESPAÇO WIILIAM) -->
+            <div class="pt-3">
+              <h3 class="font-editorial font-bold text-xl sm:text-2xl tracking-[0.18em] uppercase text-wedding-bronze">
+                ESPAÇO WIILIAM
+              </h3>
+              <p class="text-xs sm:text-[13px] tracking-[0.12em] text-wedding-bronze-light mt-1 max-w-md mx-auto">
+                Colônia Agrícola Córrego do Crispim - Chácara, 43<br>
+                Gama Leste, Brasília - DF
+              </p>
+            </div>
+
+          </div>
+
+          <!-- 8. Ações Principais no Hero -->
+          <div class="pt-4 pb-2 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            
+            <a href="#rsvp" class="w-full sm:w-auto px-7 py-3 rounded-full btn-gold text-white text-xs tracking-[0.2em] uppercase font-medium shadow-md hover:shadow-lg transition-all duration-300">
+              Confirmar Presença (RSVP)
+            </a>
+
+            <a id="save-gcalendar-btn" href="#" target="_blank" class="w-full sm:w-auto px-6 py-3 rounded-full btn-outline-gold text-xs tracking-[0.18em] uppercase font-medium flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 text-wedding-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              <span>Salvar no Google Agenda</span>
+            </a>
+
+            <button id="save-ics-btn" type="button" class="w-full sm:w-auto px-5 py-3 rounded-full bg-white/70 hover:bg-white border border-[#C5A059]/40 text-wedding-bronze text-xs tracking-[0.18em] uppercase font-medium transition-all duration-300" title="Baixar arquivo .ICS para Apple Calendar / Outlook">
+              Baixar .ICS
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- CONTADOR REGRESSIVO ELEGANTE                                 -->
+      <!-- ============================================================ -->
+      <div id="countdown-container" class="mt-10 sm:mt-14 max-w-2xl mx-auto bg-white/80 backdrop-blur-sm rounded-xl border border-[#C5A059]/25 p-6 shadow-sm text-center">
+        <h4 class="font-editorial italic text-lg sm:text-xl text-wedding-bronze mb-4 tracking-wide">
+          Contagem Regressiva para o Sim
+        </h4>
+        <div class="grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto">
+          
+          <div class="p-2 sm:p-3 bg-[#FCF9F2] rounded-lg border border-[#C5A059]/20">
+            <span id="countdown-days" class="block font-editorial font-bold text-2xl sm:text-4xl text-wedding-gold">--</span>
+            <span class="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-wedding-bronze-light">Dias</span>
+          </div>
+
+          <div class="p-2 sm:p-3 bg-[#FCF9F2] rounded-lg border border-[#C5A059]/20">
+            <span id="countdown-hours" class="block font-editorial font-bold text-2xl sm:text-4xl text-wedding-gold">--</span>
+            <span class="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-wedding-bronze-light">Horas</span>
+          </div>
+
+          <div class="p-2 sm:p-3 bg-[#FCF9F2] rounded-lg border border-[#C5A059]/20">
+            <span id="countdown-minutes" class="block font-editorial font-bold text-2xl sm:text-4xl text-wedding-gold">--</span>
+            <span class="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-wedding-bronze-light">Minutos</span>
+          </div>
+
+          <div class="p-2 sm:p-3 bg-[#FCF9F2] rounded-lg border border-[#C5A059]/20">
+            <span id="countdown-seconds" class="block font-editorial font-bold text-2xl sm:text-4xl text-wedding-gold">--</span>
+            <span class="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-wedding-bronze-light">Segundos</span>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PREVIEW DAS PRÓXIMAS SEÇÕES (ÂNCORAS E PREPARAÇÃO)          -->
+    <!-- ============================================================ -->
+    <div class="max-w-4xl mx-auto mt-20 pt-10 border-t border-[#C5A059]/20 text-center space-y-16">
+      
+      <!-- Seção Nossa História (Etapa 2) -->
+      <section id="historia" class="py-10 scroll-mt-24">
+        <span class="text-xs font-semibold tracking-[0.25em] text-wedding-gold uppercase">Capítulo 02</span>
+        <h2 class="font-editorial text-3xl sm:text-4xl text-wedding-bronze mt-2 mb-4">Nossa História</h2>
+        <div class="max-w-xl mx-auto p-6 bg-white/60 rounded-xl border border-[#C5A059]/20">
+          <p class="font-editorial italic text-lg text-wedding-bronze-light">
+            “Cada detalhe de nossa caminhada nos trouxe até este momento abençoado...”
+          </p>
+          <span class="inline-block mt-3 text-xs tracking-widest uppercase text-wedding-gold">Seção configurada para a Etapa 2</span>
+        </div>
+      </section>
+
+      <!-- Seção O Grande Dia (Etapa 3) -->
+      <section id="local" class="py-10 scroll-mt-24">
+        <span class="text-xs font-semibold tracking-[0.25em] text-wedding-gold uppercase">Capítulo 03</span>
+        <h2 class="font-editorial text-3xl sm:text-4xl text-wedding-bronze mt-2 mb-4">O Grande Dia • Espaço Wiiliam</h2>
+        <div class="max-w-xl mx-auto p-6 bg-white/60 rounded-xl border border-[#C5A059]/20">
+          <p class="font-editorial italic text-lg text-wedding-bronze-light">
+            09 de Fevereiro de 2026 às 16:00 • Gama Leste, Brasília - DF
+          </p>
+          <span class="inline-block mt-3 text-xs tracking-widest uppercase text-wedding-gold">Seção configurada para a Etapa 3</span>
+        </div>
+      </section>
+
+      <!-- Seção Presentes (Etapa 4) -->
+      <section id="presentes" class="py-10 scroll-mt-24">
+        <span class="text-xs font-semibold tracking-[0.25em] text-wedding-gold uppercase">Capítulo 04</span>
+        <h2 class="font-editorial text-3xl sm:text-4xl text-wedding-bronze mt-2 mb-4">Lista de Presentes &amp; Pix</h2>
+        <div class="max-w-xl mx-auto p-6 bg-white/60 rounded-xl border border-[#C5A059]/20">
+          <p class="font-editorial italic text-lg text-wedding-bronze-light">
+            Sua presença é o maior presente. Para contribuir com nossa nova jornada, disponibilizaremos cotas e Pix.
+          </p>
+          <span class="inline-block mt-3 text-xs tracking-widest uppercase text-wedding-gold">Seção configurada para a Etapa 4</span>
+        </div>
+      </section>
+
+      <!-- Seção RSVP (Etapa 5) -->
+      <section id="rsvp" class="py-10 scroll-mt-24">
+        <span class="text-xs font-semibold tracking-[0.25em] text-wedding-gold uppercase">Capítulo 05</span>
+        <h2 class="font-editorial text-3xl sm:text-4xl text-wedding-bronze mt-2 mb-4">Confirmação de Presença</h2>
+        <div class="max-w-xl mx-auto p-6 bg-white/60 rounded-xl border border-[#C5A059]/20">
+          <p class="font-editorial italic text-lg text-wedding-bronze-light">
+            Por favor, confirme sua presença para celebrarmos juntos esse grande dia.
+          </p>
+          <span class="inline-block mt-3 text-xs tracking-widest uppercase text-wedding-gold">Seção configurada para a Etapa 5</span>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ============================================================== -->
+  <!-- RODAPÉ                                                         -->
+  <!-- ============================================================== -->
+  <footer class="border-t border-[#C5A059]/25 py-8 text-center text-xs tracking-[0.18em] uppercase text-wedding-bronze-light">
+    <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="font-editorial text-sm font-semibold text-wedding-gold">A &amp; C</span>
+        <span>•</span>
+        <span>09.02.2026</span>
+      </div>
+      <div>
+        <span>Ana Luiza &amp; Caio Henrique</span>
+      </div>
+      <div>
+        <span>Espaço Wiiliam • Brasília - DF</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
