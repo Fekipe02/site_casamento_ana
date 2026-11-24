@@ -12,7 +12,7 @@
 - **Local:** ESPAÇO WIILIAM
 - **Endereço Completo:** Colônia Agrícola Córrego do Crispim - Chácara, 43 - Gama Leste, Brasília - DF
 - **WhatsApp para RSVP (Editar antes de publicar):** 5561999999999
-- **Chave Pix para Presentes (Editar antes de publicar):** chave-pix-aqui
+- **Chave Pix para Presentes:** daa47fc1-c89c-4df3-a29f-89f05c273a2f
 
 ## Identidade Visual Fiel ao Convite
 - **Estética:** Clássico romântico minimalista, delicado e editorial, reproduzindo fielmente o convite impresso.

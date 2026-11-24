@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initAudioPlayer();
   initCalendarModal();
+  initGiftList();
 });
 
 /* -------------------------------------------------------------
@@ -233,3 +234,151 @@ function downloadIcsFile() {
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 }
+
+/* -------------------------------------------------------------
+ * 5. LISTA DE PRESENTES, PIX E MODAL INTERATIVO
+ * ----------------------------------------------------------- */
+const OFFICIAL_PIX_KEY = "daa47fc1-c89c-4df3-a29f-89f05c273a2f";
+
+function initGiftList() {
+  const toast = document.getElementById('pix-toast');
+  const toastMessage = document.getElementById('pix-toast-message');
+  const modal = document.getElementById('gift-modal');
+  const modalTitle = document.getElementById('modal-gift-title');
+  const modalValue = document.getElementById('modal-gift-value');
+  const modalPixKey = document.getElementById('modal-pix-key');
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+  const modalBackdrop = document.getElementById('modal-backdrop');
+
+  // Copiar chave Pix dos botões com data-copy-pix
+  const copyButtons = document.querySelectorAll('[data-copy-pix]');
+  copyButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      copyPixToClipboard(OFFICIAL_PIX_KEY, btn);
+    });
+  });
+
+  // Botões de "Presentear" dos cards de presente
+  const giftButtons = document.querySelectorAll('.gift-action-btn');
+  giftButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.gift-card');
+      if (!card || !modal) return;
+
+      const title = card.getAttribute('data-title') || 'Cota de Presente';
+      const value = card.getAttribute('data-value') || '';
+
+      if (modalTitle) modalTitle.textContent = title;
+      if (modalValue) modalValue.textContent = value;
+      if (modalPixKey) modalPixKey.value = OFFICIAL_PIX_KEY;
+
+      openGiftModal();
+    });
+  });
+
+  // Fechar modal
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', closeGiftModal);
+  }
+
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener('click', closeGiftModal);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+      closeGiftModal();
+    }
+  });
+
+  // Função para copiar com suporte robusto
+  function copyPixToClipboard(text, triggerBtn) {
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(() => {
+        showCopyFeedback(triggerBtn);
+      }).catch(() => {
+        fallbackCopyText(text, triggerBtn);
+      });
+    } else {
+      fallbackCopyText(text, triggerBtn);
+    }
+  }
+
+  function fallbackCopyText(text, triggerBtn) {
+    try {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-9999px";
+      textArea.style.top = "0";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      const successful = document.execCommand('copy');
+      document.body.removeChild(textArea);
+      if (successful) {
+        showCopyFeedback(triggerBtn);
+      }
+    } catch (err) {
+      console.error('Falha ao copiar:', err);
+    }
+  }
+
+  function showCopyFeedback(triggerBtn) {
+    // Altera texto do botão temporariamente se aplicável
+    if (triggerBtn) {
+      const originalHTML = triggerBtn.innerHTML;
+      triggerBtn.classList.add('bg-green-600', 'text-white', 'border-green-600');
+      triggerBtn.innerHTML = `
+        <svg class="w-4 h-4 text-white inline-block mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <span>Chave Copiada!</span>
+      `;
+
+      setTimeout(() => {
+        triggerBtn.innerHTML = originalHTML;
+        triggerBtn.classList.remove('bg-green-600', 'text-white', 'border-green-600');
+      }, 3000);
+    }
+
+    // Exibe Toast
+    if (toast) {
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-8');
+      toast.classList.add('show', 'opacity-100', 'translate-y-0');
+
+      setTimeout(() => {
+        toast.classList.remove('show', 'opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-8');
+      }, 3500);
+    }
+  }
+
+  function openGiftModal() {
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+    setTimeout(() => {
+      const content = document.getElementById('gift-modal-content');
+      if (content) {
+        content.classList.remove('scale-95', 'opacity-0');
+        content.classList.add('scale-100', 'opacity-100');
+      }
+    }, 10);
+  }
+
+  function closeGiftModal() {
+    if (!modal) return;
+    const content = document.getElementById('gift-modal-content');
+    if (content) {
+      content.classList.remove('scale-100', 'opacity-100');
+      content.classList.add('scale-95', 'opacity-0');
+    }
+    setTimeout(() => {
+      modal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }, 250);
+  }
+}
+

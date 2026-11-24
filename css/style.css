@@ -124,3 +124,48 @@ html {
 .animate-glow {
   animation: pulseGlow 4s ease-in-out infinite;
 }
+
+/* Card de Presente com Efeito Elegante */
+.gift-card {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px -2px rgba(91, 73, 42, 0.05);
+}
+
+.gift-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px -4px rgba(197, 160, 89, 0.22);
+  border-color: #C5A059;
+}
+
+/* Card de Dicas */
+.tip-card {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px -2px rgba(91, 73, 42, 0.04);
+}
+
+.tip-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px -4px rgba(197, 160, 89, 0.18);
+  border-color: #C5A059;
+}
+
+/* Toast de Notificação Pix */
+#pix-toast {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+}
+
+#pix-toast.show {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Modal de Presentes */
+#gift-modal {
+  transition: opacity 0.3s ease;
+}
+
+#gift-modal-content {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
