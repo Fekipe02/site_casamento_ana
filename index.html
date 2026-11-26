@@ -57,14 +57,7 @@
       
       <!-- Monograma AC Navbar -->
       <a href="#inicio" class="flex items-center gap-3 group focus:outline-none" aria-label="Início - Ana Luiza e Caio Henrique">
-        <svg class="w-10 h-10 text-wedding-gold transition-transform duration-300 group-hover:scale-105" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="46" stroke="#C5A059" stroke-width="1.2" stroke-dasharray="2 2" opacity="0.6"/>
-          <circle cx="50" cy="50" r="42" stroke="#C5A059" stroke-width="0.8"/>
-          <!-- Letra A refinada -->
-          <path d="M 40 72 L 52 28 L 56 28 L 68 72 M 43 60 L 65 60" stroke="#C5A059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <!-- Letra C entrelaçada -->
-          <path d="M 64 36 C 46 33 34 44 34 54 C 34 66 46 72 64 70" stroke="#A88238" stroke-width="2.2" stroke-linecap="round"/>
-        </svg>
+        <img src="assets/images/monograma.jpg" alt="Monograma AC" class="w-10 h-10 object-contain monogram-blend transition-transform duration-300 group-hover:scale-105">
         <span class="font-editorial text-lg md:text-xl tracking-[0.15em] uppercase text-wedding-bronze font-medium hidden sm:inline">
           Ana Luiza &amp; Caio
         </span>
@@ -225,27 +218,8 @@
           
           <!-- 1. Monograma AC Centralizado -->
           <div class="flex justify-center mb-6 sm:mb-8">
-            <div class="relative w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
-              <svg class="w-full h-full text-wedding-gold animate-glow" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Círculo externo fino e delicado -->
-                <circle cx="60" cy="60" r="56" stroke="#C5A059" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>
-                <circle cx="60" cy="60" r="52" stroke="#C5A059" stroke-width="0.8" opacity="0.8"/>
-                <circle cx="60" cy="60" r="48" stroke="#C5A059" stroke-width="0.4" opacity="0.4"/>
-                
-                <!-- Letra A Caligráfica em Dourado -->
-                <path d="M 45 88 L 60 30 L 65 30 L 80 88 M 49 72 L 76 72" 
-                      stroke="#C5A059" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-                
-                <!-- Letra C Entrelaçada com a barra do A -->
-                <path d="M 76 42 C 50 38 34 52 34 65 C 34 80 50 88 74 84" 
-                      stroke="#A88238" stroke-width="2.8" stroke-linecap="round"/>
-                
-                <!-- Pequenos losangos nos pontos cardeais do monograma -->
-                <polygon points="60,2 62,4 60,6 58,4" fill="#C5A059"/>
-                <polygon points="60,114 62,116 60,118 58,116" fill="#C5A059"/>
-                <polygon points="2,60 4,62 6,60 4,58" fill="#C5A059"/>
-                <polygon points="114,60 116,62 118,60 116,58" fill="#C5A059"/>
-              </svg>
+            <div class="relative w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center">
+              <img src="assets/images/monograma.jpg" alt="Monograma AC - Ana Luiza e Caio Henrique" class="w-full h-full object-contain monogram-blend animate-glow">
             </div>
           </div>
 
@@ -407,15 +381,133 @@
     <!-- ============================================================ -->
     <div class="max-w-4xl mx-auto mt-20 pt-10 border-t border-[#C5A059]/20 text-center space-y-16">
       
-      <!-- Seção Nossa História (Etapa 2) -->
-      <section id="historia" class="py-10 scroll-mt-24">
-        <span class="text-xs font-semibold tracking-[0.25em] text-wedding-gold uppercase">Capítulo 02</span>
-        <h2 class="font-editorial text-3xl sm:text-4xl text-wedding-bronze mt-2 mb-4">Nossa História</h2>
-        <div class="max-w-xl mx-auto p-6 bg-white/60 rounded-xl border border-[#C5A059]/20">
-          <p class="font-editorial italic text-lg text-wedding-bronze-light">
-            “Cada detalhe de nossa caminhada nos trouxe até este momento abençoado...”
+      <!-- ============================================================ -->
+      <!-- ETAPA 2: NOSSA HISTÓRIA & GALERIA DE FOTOS                   -->
+      <!-- ============================================================ -->
+      <section id="historia" class="py-12 scroll-mt-24">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-xs font-semibold tracking-[0.25em] text-wedding-gold uppercase">Capítulo 02</span>
+          <h2 class="font-editorial text-3xl sm:text-4xl text-wedding-bronze mt-2 mb-3">Nossa História</h2>
+          <p class="font-editorial italic text-base sm:text-lg text-wedding-bronze-light leading-relaxed">
+            “Assim já não são mais dois, mas uma só carne. Portanto, o que Deus uniu, não o separe o homem.”
           </p>
-          <span class="inline-block mt-3 text-xs tracking-widest uppercase text-wedding-gold">Seção configurada para a Etapa 2</span>
+          <div class="flex items-center justify-center gap-3 my-4 opacity-70">
+            <div class="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#C5A059]"></div>
+            <svg class="w-3.5 h-3.5 text-wedding-gold" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12,2 15,9 22,12 15,15 12,22 9,15 2,12 9,9"/>
+            </svg>
+            <div class="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#C5A059]"></div>
+          </div>
+        </div>
+
+        <!-- Linha do Tempo Editorial -->
+        <div class="max-w-3xl mx-auto mb-16 space-y-8 text-left relative">
+          <div class="hidden sm:block absolute left-1/2 top-4 bottom-4 w-[1px] bg-gradient-to-b from-transparent via-[#C5A059]/40 to-transparent -translate-x-1/2"></div>
+
+          <!-- Marco 1 -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+            <div class="bg-white/85 backdrop-blur-sm rounded-2xl p-6 border border-[#C5A059]/25 shadow-sm sm:text-right">
+              <span class="text-[11px] font-semibold tracking-[0.2em] text-wedding-gold uppercase">O Encontro</span>
+              <h3 class="font-editorial font-bold text-xl text-wedding-bronze mt-1 mb-2">Quando Deus nos Uniu</h3>
+              <p class="text-xs sm:text-[13px] leading-relaxed text-wedding-bronze-light">
+                Entre risos sinceros, conversas sem fim e muita oração, descobrimos que o propósito de Deus para nossas vidas era caminhar lado a lado.
+              </p>
+            </div>
+            <div class="hidden sm:flex justify-start pl-4">
+              <div class="w-3.5 h-3.5 rounded-full bg-[#C5A059] ring-4 ring-[#FCF9F2] -ml-[23px]"></div>
+            </div>
+          </div>
+
+          <!-- Marco 2 -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+            <div class="hidden sm:flex justify-end pr-4">
+              <div class="w-3.5 h-3.5 rounded-full bg-[#C5A059] ring-4 ring-[#FCF9F2] -mr-[23px]"></div>
+            </div>
+            <div class="bg-white/85 backdrop-blur-sm rounded-2xl p-6 border border-[#C5A059]/25 shadow-sm">
+              <span class="text-[11px] font-semibold tracking-[0.2em] text-wedding-gold uppercase">O Pedido</span>
+              <h3 class="font-editorial font-bold text-xl text-wedding-bronze mt-1 mb-2">Um “Sim” ao Pôr do Sol</h3>
+              <p class="text-xs sm:text-[13px] leading-relaxed text-wedding-bronze-light">
+                Diante das montanhas e sob a luz dourada do entardecer, com flores e lágrimas de alegria, demos o passo mais lindo rumo ao nosso lar.
+              </p>
+            </div>
+          </div>
+
+          <!-- Marco 3 -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+            <div class="bg-white/85 backdrop-blur-sm rounded-2xl p-6 border border-[#C5A059]/25 shadow-sm sm:text-right">
+              <span class="text-[11px] font-semibold tracking-[0.2em] text-wedding-gold uppercase">09 de Fevereiro de 2026</span>
+              <h3 class="font-editorial font-bold text-xl text-wedding-bronze mt-1 mb-2">O Nosso Grande Dia</h3>
+              <p class="text-xs sm:text-[13px] leading-relaxed text-wedding-bronze-light">
+                No Espaço Wiiliam, cercados por nossas famílias e amigos queridos, selaremos nossa aliança diante de Deus.
+              </p>
+            </div>
+            <div class="hidden sm:flex justify-start pl-4">
+              <div class="w-3.5 h-3.5 rounded-full bg-[#C5A059] ring-4 ring-[#FCF9F2] -ml-[23px]"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Galeria de Fotos do Casal -->
+        <div class="text-center mb-8">
+          <h3 class="font-editorial text-2xl sm:text-3xl text-wedding-bronze">Nossos Momentos</h3>
+          <p class="text-xs sm:text-sm text-wedding-bronze-light mt-1">Clique em qualquer foto para ampliar</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5">
+          <!-- Foto 1 (Destaque) -->
+          <button type="button" class="gallery-item group relative overflow-hidden rounded-xl bg-white p-1.5 border border-[#C5A059]/35 shadow-sm col-span-2 md:col-span-1 aspect-[4/5] focus:outline-none"
+                  data-photo="assets/images/casal-1.jpg" data-caption="Sorrisos sob a luz dourada do pôr do sol">
+            <div class="w-full h-full overflow-hidden rounded-lg">
+              <img src="assets/images/casal-1.jpg" alt="Ana Luiza e Caio Henrique sorrindo ao pôr do sol" class="w-full h-full object-cover" loading="lazy">
+            </div>
+            <div class="absolute inset-1.5 rounded-lg bg-[#5B492A]/0 group-hover:bg-[#5B492A]/20 transition-colors flex items-end p-3 opacity-0 group-hover:opacity-100">
+              <span class="text-white text-[11px] tracking-wider uppercase font-medium drop-shadow">Ampliar foto</span>
+            </div>
+          </button>
+
+          <!-- Foto 2 -->
+          <button type="button" class="gallery-item group relative overflow-hidden rounded-xl bg-white p-1.5 border border-[#C5A059]/35 shadow-sm aspect-[4/5] focus:outline-none"
+                  data-photo="assets/images/casal-5.jpg" data-caption="Carinho e paz em cada detalhe">
+            <div class="w-full h-full overflow-hidden rounded-lg">
+              <img src="assets/images/casal-5.jpg" alt="Caio Henrique beijando a testa de Ana Luiza" class="w-full h-full object-cover" loading="lazy">
+            </div>
+            <div class="absolute inset-1.5 rounded-lg bg-[#5B492A]/0 group-hover:bg-[#5B492A]/20 transition-colors flex items-end p-3 opacity-0 group-hover:opacity-100">
+              <span class="text-white text-[11px] tracking-wider uppercase font-medium drop-shadow">Ampliar foto</span>
+            </div>
+          </button>
+
+          <!-- Foto 3 -->
+          <button type="button" class="gallery-item group relative overflow-hidden rounded-xl bg-white p-1.5 border border-[#C5A059]/35 shadow-sm aspect-[4/5] focus:outline-none"
+                  data-photo="assets/images/casal-3.jpg" data-caption="O abraço, as flores e a nossa aliança">
+            <div class="w-full h-full overflow-hidden rounded-lg">
+              <img src="assets/images/casal-3.jpg" alt="Ana Luiza e Caio Henrique abraçados com buquê de flores" class="w-full h-full object-cover" loading="lazy">
+            </div>
+            <div class="absolute inset-1.5 rounded-lg bg-[#5B492A]/0 group-hover:bg-[#5B492A]/20 transition-colors flex items-end p-3 opacity-0 group-hover:opacity-100">
+              <span class="text-white text-[11px] tracking-wider uppercase font-medium drop-shadow">Ampliar foto</span>
+            </div>
+          </button>
+
+          <!-- Foto 4 -->
+          <button type="button" class="gallery-item group relative overflow-hidden rounded-xl bg-white p-1.5 border border-[#C5A059]/35 shadow-sm aspect-[4/5] focus:outline-none"
+                  data-photo="assets/images/casal-4.jpg" data-caption="O cenário inesquecível do nosso pedido">
+            <div class="w-full h-full overflow-hidden rounded-lg">
+              <img src="assets/images/casal-4.jpg" alt="Ana Luiza e Caio Henrique no mirante com pétalas de rosa" class="w-full h-full object-cover" loading="lazy">
+            </div>
+            <div class="absolute inset-1.5 rounded-lg bg-[#5B492A]/0 group-hover:bg-[#5B492A]/20 transition-colors flex items-end p-3 opacity-0 group-hover:opacity-100">
+              <span class="text-white text-[11px] tracking-wider uppercase font-medium drop-shadow">Ampliar foto</span>
+            </div>
+          </button>
+
+          <!-- Foto 5 -->
+          <button type="button" class="gallery-item group relative overflow-hidden rounded-xl bg-white p-1.5 border border-[#C5A059]/35 shadow-sm col-span-2 md:col-span-2 aspect-[4/5] md:aspect-[16/10] focus:outline-none"
+                  data-photo="assets/images/casal-2.jpg" data-caption="Olhando juntos para o mesmo horizonte">
+            <div class="w-full h-full overflow-hidden rounded-lg">
+              <img src="assets/images/casal-2.jpg" alt="Ana Luiza e Caio Henrique abraçados de costas olhando o pôr do sol" class="w-full h-full object-cover object-center" loading="lazy">
+            </div>
+            <div class="absolute inset-1.5 rounded-lg bg-[#5B492A]/0 group-hover:bg-[#5B492A]/20 transition-colors flex items-end p-3 opacity-0 group-hover:opacity-100">
+              <span class="text-white text-[11px] tracking-wider uppercase font-medium drop-shadow">Ampliar foto</span>
+            </div>
+          </button>
         </div>
       </section>
 
@@ -482,7 +574,7 @@
               </div>
               <h3 class="font-editorial font-bold text-xl text-wedding-bronze mb-2">Calçados &amp; Gramado</h3>
               <p class="text-xs sm:text-[13px] leading-relaxed text-wedding-bronze-light">
-                O <strong class="text-wedding-bronze font-medium">Espaço Wiiliam</strong> possui belíssimas áreas ao ar livre e gramado. Para as mulheres, recomendamos <strong class="text-wedding-bronze font-medium">salto bloco/grosso, anabela ou sapatilhas finas</strong> para caminhar com estabilidade e dançar até o fim!
+                O <strong class="text-wedding-bronze font-medium">Espaço Wiiliam</strong> possui belíssimas áreas ao ar livre e gramado. Para as mulheres, recomendamos <strong class="text-wedding-bronze font-medium">salto bloco/grosso, anabela ou sapatilhas finas</strong> para caminhar com estabilidade e conforto.
               </p>
             </div>
             <div class="mt-4 pt-3 border-t border-[#C5A059]/15">
@@ -648,283 +740,48 @@
         </div>
 
         <!-- ============================================================ -->
-        <!-- VITRINE DE COTAS DE PRESENTES (CARDS ELEGANTES)             -->
+        <!-- VITRINE DE PRESENTES DO NOVO LAR (LISTA OFICIAL DO CASAL)    -->
         <!-- ============================================================ -->
-        <div class="text-center mb-8">
+        <div class="text-center mb-6">
           <h3 class="font-editorial text-2xl sm:text-3xl text-wedding-bronze">
-            Cotas Sugeridas de Lua de Mel &amp; Novo Lar
+            Lista de Presentes do Nosso Lar
           </h3>
-          <p class="text-xs sm:text-sm text-wedding-bronze-light mt-1">
-            Escolha uma cota simbólica para nos presentear através do Pix:
+          <p class="text-xs sm:text-sm text-wedding-bronze-light mt-1 max-w-xl mx-auto">
+            Escolha um item abaixo para presentear (seja enviando o presente físico ou o valor via Pix). Itens já escolhidos ficam sinalizados, mas você ainda pode selecioná-los caso deseje!
           </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-          
-          <!-- Cota 1 -->
-          <div class="gift-card bg-white/90 backdrop-blur rounded-2xl p-6 border border-[#C5A059]/25 flex flex-col justify-between"
-               data-title="Café da Manhã a Dois na Lua de Mel" data-value="R$ 60,00">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-[#FCF9F2] text-wedding-gold border border-[#C5A059]/30 font-editorial tracking-wider">
-                  Lua de Mel
-                </span>
-                <span class="font-editorial text-xl font-bold text-wedding-gold">R$ 60</span>
-              </div>
-              <div class="w-12 h-12 rounded-xl bg-[#FCF9F2] border border-[#C5A059]/20 flex items-center justify-center text-wedding-gold mb-3">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"></path>
-                </svg>
-              </div>
-              <h4 class="font-editorial font-bold text-lg text-wedding-bronze mb-1">Café da Manhã a Dois</h4>
-              <p class="text-xs text-wedding-bronze-light leading-relaxed">
-                Para começarmos nosso primeiro dia de casados com um delicioso café e muito amor.
-              </p>
-            </div>
-            <div class="mt-5 pt-4 border-t border-[#C5A059]/15 flex items-center justify-between">
-              <button type="button" class="gift-action-btn text-xs font-semibold uppercase tracking-wider text-wedding-gold hover:text-wedding-bronze transition-colors flex items-center gap-1.5">
-                <span>Presentear</span>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </button>
-              <button type="button" data-copy-pix class="text-[11px] text-wedding-bronze-light hover:text-wedding-gold" title="Copiar Pix rápido">
-                Copiar Pix
-              </button>
-            </div>
+        <!-- Filtros e Busca -->
+        <div class="max-w-3xl mx-auto mb-8 space-y-4">
+          <div class="flex flex-wrap items-center justify-center gap-2">
+            <button type="button" class="filter-pill active px-4 py-1.5 rounded-full border border-[#C5A059]/40 text-xs tracking-wider uppercase font-medium text-wedding-bronze transition-all" data-category="todos">
+              Todos (<span id="count-todos">39</span>)
+            </button>
+            <button type="button" class="filter-pill px-4 py-1.5 rounded-full border border-[#C5A059]/40 text-xs tracking-wider uppercase font-medium text-wedding-bronze hover:border-wedding-gold transition-all" data-category="Cozinha">
+              Cozinha
+            </button>
+            <button type="button" class="filter-pill px-4 py-1.5 rounded-full border border-[#C5A059]/40 text-xs tracking-wider uppercase font-medium text-wedding-bronze hover:border-wedding-gold transition-all" data-category="Eletrodomésticos">
+              Eletrodomésticos
+            </button>
+            <button type="button" class="filter-pill px-4 py-1.5 rounded-full border border-[#C5A059]/40 text-xs tracking-wider uppercase font-medium text-wedding-bronze hover:border-wedding-gold transition-all" data-category="Móveis & Casa">
+              Móveis &amp; Casa
+            </button>
+            <button type="button" class="filter-pill px-4 py-1.5 rounded-full border border-[#C5A059]/40 text-xs tracking-wider uppercase font-medium text-wedding-bronze hover:border-wedding-gold transition-all" data-category="Enxoval & Lavanderia">
+              Enxoval &amp; Lavanderia
+            </button>
           </div>
 
-          <!-- Cota 2 -->
-          <div class="gift-card bg-white/90 backdrop-blur rounded-2xl p-6 border border-[#C5A059]/25 flex flex-col justify-between"
-               data-title="Brinde dos Noivos com Espumante" data-value="R$ 100,00">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-[#FCF9F2] text-wedding-gold border border-[#C5A059]/30 font-editorial tracking-wider">
-                  Celebração
-                </span>
-                <span class="font-editorial text-xl font-bold text-wedding-gold">R$ 100</span>
-              </div>
-              <div class="w-12 h-12 rounded-xl bg-[#FCF9F2] border border-[#C5A059]/20 flex items-center justify-center text-wedding-gold mb-3">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <h4 class="font-editorial font-bold text-lg text-wedding-bronze mb-1">Brinde com Espumante</h4>
-              <p class="text-xs text-wedding-bronze-light leading-relaxed">
-                Um brinde especial aos recém-casados para celebrar este amor tão abençoado.
-              </p>
-            </div>
-            <div class="mt-5 pt-4 border-t border-[#C5A059]/15 flex items-center justify-between">
-              <button type="button" class="gift-action-btn text-xs font-semibold uppercase tracking-wider text-wedding-gold hover:text-wedding-bronze transition-colors flex items-center gap-1.5">
-                <span>Presentear</span>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </button>
-              <button type="button" data-copy-pix class="text-[11px] text-wedding-bronze-light hover:text-wedding-gold" title="Copiar Pix rápido">
-                Copiar Pix
-              </button>
-            </div>
+          <div class="max-w-sm mx-auto relative">
+            <input id="gift-search-input" type="text" placeholder="Buscar presente (ex: Sofá, Panela, Tapetes...)" class="w-full bg-white/90 border border-[#C5A059]/35 rounded-full pl-10 pr-4 py-2 text-xs text-wedding-bronze placeholder-wedding-bronze-light/70 focus:outline-none focus:border-wedding-gold">
+            <svg class="w-4 h-4 text-wedding-gold absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
           </div>
+        </div>
 
-          <!-- Cota 3 -->
-          <div class="gift-card bg-white/90 backdrop-blur rounded-2xl p-6 border border-[#C5A059]/25 flex flex-col justify-between"
-               data-title="Passeio Romântico ao Pôr do Sol" data-value="R$ 150,00">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-[#FCF9F2] text-wedding-gold border border-[#C5A059]/30 font-editorial tracking-wider">
-                  Passeio
-                </span>
-                <span class="font-editorial text-xl font-bold text-wedding-gold">R$ 150</span>
-              </div>
-              <div class="w-12 h-12 rounded-xl bg-[#FCF9F2] border border-[#C5A059]/20 flex items-center justify-center text-wedding-gold mb-3">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                </svg>
-              </div>
-              <h4 class="font-editorial font-bold text-lg text-wedding-bronze mb-1">Passeio ao Pôr do Sol</h4>
-              <p class="text-xs text-wedding-bronze-light leading-relaxed">
-                Uma tarde inesquecível contemplando as paisagens da nossa viagem dos sonhos.
-              </p>
-            </div>
-            <div class="mt-5 pt-4 border-t border-[#C5A059]/15 flex items-center justify-between">
-              <button type="button" class="gift-action-btn text-xs font-semibold uppercase tracking-wider text-wedding-gold hover:text-wedding-bronze transition-colors flex items-center gap-1.5">
-                <span>Presentear</span>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </button>
-              <button type="button" data-copy-pix class="text-[11px] text-wedding-bronze-light hover:text-wedding-gold" title="Copiar Pix rápido">
-                Copiar Pix
-              </button>
-            </div>
-          </div>
-
-          <!-- Cota 4 -->
-          <div class="gift-card bg-white/90 backdrop-blur rounded-2xl p-6 border border-[#C5A059]/25 flex flex-col justify-between"
-               data-title="Jantar Especial à Luz de Velas" data-value="R$ 200,00">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-[#FCF9F2] text-wedding-gold border border-[#C5A059]/30 font-editorial tracking-wider">
-                  Romance
-                </span>
-                <span class="font-editorial text-xl font-bold text-wedding-gold">R$ 200</span>
-              </div>
-              <div class="w-12 h-12 rounded-xl bg-[#FCF9F2] border border-[#C5A059]/20 flex items-center justify-center text-wedding-gold mb-3">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                </svg>
-              </div>
-              <h4 class="font-editorial font-bold text-lg text-wedding-bronze mb-1">Jantar à Luz de Velas</h4>
-              <p class="text-xs text-wedding-bronze-light leading-relaxed">
-                Uma noite especial para comemorar os primeiros passos do nosso casamento.
-              </p>
-            </div>
-            <div class="mt-5 pt-4 border-t border-[#C5A059]/15 flex items-center justify-between">
-              <button type="button" class="gift-action-btn text-xs font-semibold uppercase tracking-wider text-wedding-gold hover:text-wedding-bronze transition-colors flex items-center gap-1.5">
-                <span>Presentear</span>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </button>
-              <button type="button" data-copy-pix class="text-[11px] text-wedding-bronze-light hover:text-wedding-gold" title="Copiar Pix rápido">
-                Copiar Pix
-              </button>
-            </div>
-          </div>
-
-          <!-- Cota 5 -->
-          <div class="gift-card bg-white/90 backdrop-blur rounded-2xl p-6 border border-[#C5A059]/25 flex flex-col justify-between"
-               data-title="Kit de Utensílios da Cozinha Nova" data-value="R$ 250,00">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-[#FCF9F2] text-wedding-gold border border-[#C5A059]/30 font-editorial tracking-wider">
-                  Novo Lar
-                </span>
-                <span class="font-editorial text-xl font-bold text-wedding-gold">R$ 250</span>
-              </div>
-              <div class="w-12 h-12 rounded-xl bg-[#FCF9F2] border border-[#C5A059]/20 flex items-center justify-center text-wedding-gold mb-3">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                </svg>
-              </div>
-              <h4 class="font-editorial font-bold text-lg text-wedding-bronze mb-1">Cozinha dos Noivos</h4>
-              <p class="text-xs text-wedding-bronze-light leading-relaxed">
-                Para prepararmos com carinho as primeiras receitas da nossa nova casa.
-              </p>
-            </div>
-            <div class="mt-5 pt-4 border-t border-[#C5A059]/15 flex items-center justify-between">
-              <button type="button" class="gift-action-btn text-xs font-semibold uppercase tracking-wider text-wedding-gold hover:text-wedding-bronze transition-colors flex items-center gap-1.5">
-                <span>Presentear</span>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </button>
-              <button type="button" data-copy-pix class="text-[11px] text-wedding-bronze-light hover:text-wedding-gold" title="Copiar Pix rápido">
-                Copiar Pix
-              </button>
-            </div>
-          </div>
-
-          <!-- Cota 6 -->
-          <div class="gift-card bg-white/90 backdrop-blur rounded-2xl p-6 border border-[#C5A059]/25 flex flex-col justify-between"
-               data-title="Dia de Spa e Relaxamento para o Casal" data-value="R$ 350,00">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-[#FCF9F2] text-wedding-gold border border-[#C5A059]/30 font-editorial tracking-wider">
-                  Bem-estar
-                </span>
-                <span class="font-editorial text-xl font-bold text-wedding-gold">R$ 350</span>
-              </div>
-              <div class="w-12 h-12 rounded-xl bg-[#FCF9F2] border border-[#C5A059]/20 flex items-center justify-center text-wedding-gold mb-3">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                </svg>
-              </div>
-              <h4 class="font-editorial font-bold text-lg text-wedding-bronze mb-1">Dia de Spa dos Noivos</h4>
-              <p class="text-xs text-wedding-bronze-light leading-relaxed">
-                Um momento relaxante e revigorante após todos os preparativos do casamento.
-              </p>
-            </div>
-            <div class="mt-5 pt-4 border-t border-[#C5A059]/15 flex items-center justify-between">
-              <button type="button" class="gift-action-btn text-xs font-semibold uppercase tracking-wider text-wedding-gold hover:text-wedding-bronze transition-colors flex items-center gap-1.5">
-                <span>Presentear</span>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </button>
-              <button type="button" data-copy-pix class="text-[11px] text-wedding-bronze-light hover:text-wedding-gold" title="Copiar Pix rápido">
-                Copiar Pix
-              </button>
-            </div>
-          </div>
-
-          <!-- Cota 7 -->
-          <div class="gift-card bg-white/90 backdrop-blur rounded-2xl p-6 border border-[#C5A059]/25 flex flex-col justify-between"
-               data-title="Cota Mobília e Conforto do Nosso Lar" data-value="R$ 500,00">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-[#FCF9F2] text-wedding-gold border border-[#C5A059]/30 font-editorial tracking-wider">
-                  Nosso Lar
-                </span>
-                <span class="font-editorial text-xl font-bold text-wedding-gold">R$ 500</span>
-              </div>
-              <div class="w-12 h-12 rounded-xl bg-[#FCF9F2] border border-[#C5A059]/20 flex items-center justify-center text-wedding-gold mb-3">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-                </svg>
-              </div>
-              <h4 class="font-editorial font-bold text-lg text-wedding-bronze mb-1">Mobília &amp; Decoração</h4>
-              <p class="text-xs text-wedding-bronze-light leading-relaxed">
-                Uma ajuda muito especial para montarmos nosso cantinho com conforto e aconchego.
-              </p>
-            </div>
-            <div class="mt-5 pt-4 border-t border-[#C5A059]/15 flex items-center justify-between">
-              <button type="button" class="gift-action-btn text-xs font-semibold uppercase tracking-wider text-wedding-gold hover:text-wedding-bronze transition-colors flex items-center gap-1.5">
-                <span>Presentear</span>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </button>
-              <button type="button" data-copy-pix class="text-[11px] text-wedding-bronze-light hover:text-wedding-gold" title="Copiar Pix rápido">
-                Copiar Pix
-              </button>
-            </div>
-          </div>
-
-          <!-- Cota 8 -->
-          <div class="gift-card bg-white/90 backdrop-blur rounded-2xl p-6 border border-[#C5A059]/25 flex flex-col justify-between"
-               data-title="Bênção com Contribuição Livre" data-value="Valor Livre">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-[#FCF9F2] text-wedding-gold border border-[#C5A059]/30 font-editorial tracking-wider">
-                  Do Coração
-                </span>
-                <span class="font-editorial text-lg font-bold text-wedding-gold">Valor Livre</span>
-              </div>
-              <div class="w-12 h-12 rounded-xl bg-[#FCF9F2] border border-[#C5A059]/20 flex items-center justify-center text-wedding-gold mb-3">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <h4 class="font-editorial font-bold text-lg text-wedding-bronze mb-1">Deus Abençoe o Casal</h4>
-              <p class="text-xs text-wedding-bronze-light leading-relaxed">
-                Sinta-se à vontade para nos presentear com qualquer valor que desejar do coração.
-              </p>
-            </div>
-            <div class="mt-5 pt-4 border-t border-[#C5A059]/15 flex items-center justify-between">
-              <button type="button" class="gift-action-btn text-xs font-semibold uppercase tracking-wider text-wedding-gold hover:text-wedding-bronze transition-colors flex items-center gap-1.5">
-                <span>Presentear</span>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </button>
-              <button type="button" data-copy-pix class="text-[11px] text-wedding-bronze-light hover:text-wedding-gold" title="Copiar Pix rápido">
-                Copiar Pix
-              </button>
-            </div>
-          </div>
-
+        <!-- Grade Dinâmica de Presentes (Populada por js/main.js) -->
+        <div id="gifts-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 text-left">
+          <!-- Itens renderizados dinamicamente -->
         </div>
       </section>
 
@@ -956,85 +813,223 @@
       <div>
         <span>Ana Luiza &amp; Caio Henrique</span>
       </div>
-      <div>
+      <div class="flex items-center gap-3">
         <span>Espaço Wiiliam • Brasília - DF</span>
+        <button id="open-admin-btn" type="button" class="text-wedding-bronze-light/50 hover:text-wedding-gold transition-colors p-1" title="Área dos Noivos (Admin)">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+          </svg>
+        </button>
       </div>
     </div>
   </footer>
 
   <!-- ============================================================== -->
-  <!-- MODAL INTERATIVO DE PRESENTE (COTAS E PIX)                     -->
+  <!-- MODAL DE SELEÇÃO E CONFIRMAÇÃO DE PRESENTE                     -->
   <!-- ============================================================== -->
   <div id="gift-modal" class="hidden fixed inset-0 z-50 overflow-y-auto">
-    <!-- Backdrop com desfoque -->
     <div id="modal-backdrop" class="fixed inset-0 bg-[#5B492A]/60 backdrop-blur-sm transition-opacity"></div>
 
     <div class="flex min-h-full items-center justify-center p-4 text-center">
       <div id="gift-modal-content" class="relative transform overflow-hidden rounded-2xl bg-[#FCF9F2] p-6 sm:p-8 text-left shadow-2xl transition-all w-full max-w-lg border border-[#C5A059]/40 scale-95 opacity-0">
         
-        <!-- Botão Fechar -->
         <button id="modal-close-btn" type="button" class="absolute top-4 right-4 p-2 text-wedding-bronze hover:text-wedding-gold transition-colors focus:outline-none" aria-label="Fechar modal">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
 
-        <!-- Detalhes do Presente Selecionado -->
-        <div class="text-center mb-6">
-          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white border border-[#C5A059]/40 text-wedding-gold mb-3 shadow-sm">
+        <!-- Cabeçalho do Presente -->
+        <div class="text-center mb-5">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white border border-[#C5A059]/40 text-wedding-gold mb-2 shadow-sm">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
             </svg>
           </div>
-          <span class="block text-xs font-semibold tracking-[0.2em] text-wedding-gold uppercase mb-1">Cota Escolhida</span>
-          <h3 id="modal-gift-title" class="font-editorial text-2xl font-bold text-wedding-bronze">Café da Manhã a Dois</h3>
-          <p id="modal-gift-value" class="text-lg font-semibold text-wedding-gold mt-1">R$ 60,00</p>
+          <span class="block text-xs font-semibold tracking-[0.2em] text-wedding-gold uppercase mb-1">Presente Selecionado</span>
+          <h3 id="modal-gift-title" class="font-editorial text-2xl font-bold text-wedding-bronze">Item</h3>
+          <p id="modal-gift-category" class="text-xs text-wedding-bronze-light uppercase tracking-wider mt-0.5">Categoria</p>
+          <p id="modal-already-selected-note" class="hidden mt-2 text-[11px] bg-[#C5A059]/15 text-wedding-bronze px-3 py-1 rounded-full inline-block">
+            ✦ Este item já foi selecionado antes, mas você também pode presenteá-lo se desejar!
+          </p>
         </div>
 
-        <!-- Instruções de Pagamento Pix -->
-        <div class="bg-white rounded-xl p-5 border border-[#C5A059]/30 mb-6 space-y-4">
-          <div>
-            <span class="block text-[11px] font-semibold uppercase tracking-wider text-wedding-gold mb-1">
+        <!-- Passo 1: Formulário do Convidado -->
+        <form id="gift-confirm-form" class="space-y-4">
+          <div class="bg-white rounded-xl p-4 sm:p-5 border border-[#C5A059]/30 space-y-4">
+            <div>
+              <label for="gift-guest-name" class="block text-[11px] font-semibold uppercase tracking-wider text-wedding-bronze mb-1">
+                Seu Nome Completo *
+              </label>
+              <input id="gift-guest-name" type="text" required placeholder="Digite seu nome para os noivos saberem" class="w-full bg-[#FCF9F2] border border-[#C5A059]/35 rounded-lg px-3.5 py-2.5 text-xs text-wedding-bronze focus:outline-none focus:border-wedding-gold">
+            </div>
+
+            <div>
+              <span class="block text-[11px] font-semibold uppercase tracking-wider text-wedding-bronze mb-1.5">
+                Como deseja presentear?
+              </span>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <label class="flex items-center gap-2 p-2.5 rounded-lg border border-[#C5A059]/30 bg-[#FCF9F2] cursor-pointer text-xs text-wedding-bronze">
+                  <input type="radio" name="gift-method" value="Pix" checked class="accent-[#C5A059]">
+                  <span>Enviar valor via Pix</span>
+                </label>
+                <label class="flex items-center gap-2 p-2.5 rounded-lg border border-[#C5A059]/30 bg-[#FCF9F2] cursor-pointer text-xs text-wedding-bronze">
+                  <input type="radio" name="gift-method" value="Presente Físico" class="accent-[#C5A059]">
+                  <span>Presente Físico</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label for="gift-guest-message" class="block text-[11px] font-semibold uppercase tracking-wider text-wedding-bronze mb-1">
+                Mensagem aos Noivos (opcional)
+              </label>
+              <textarea id="gift-guest-message" rows="2" placeholder="Deixe uma palavra de carinho..." class="w-full bg-[#FCF9F2] border border-[#C5A059]/35 rounded-lg px-3.5 py-2 text-xs text-wedding-bronze focus:outline-none focus:border-wedding-gold resize-none"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="w-full py-3 rounded-full btn-gold text-white text-xs tracking-[0.2em] uppercase font-semibold shadow-md">
+            Confirmar Presente
+          </button>
+        </form>
+
+        <!-- Passo 2: Confirmação + Pix (Exibido após confirmar nome) -->
+        <div id="gift-success-view" class="hidden space-y-4">
+          <div class="bg-green-50 border border-green-200 rounded-xl p-4 text-center">
+            <p class="text-xs font-semibold text-green-800">Obrigado pelo carinho! Sua seleção foi registrada.</p>
+            <p class="text-[11px] text-green-700 mt-0.5">Se escolheu Pix, utilize a chave oficial abaixo:</p>
+          </div>
+
+          <div class="bg-white rounded-xl p-4 border border-[#C5A059]/30 space-y-3">
+            <span class="block text-[11px] font-semibold uppercase tracking-wider text-wedding-gold">
               Chave Pix Oficial (Aleatória)
             </span>
             <div class="flex items-center gap-2">
               <input id="modal-pix-key" type="text" readonly value="daa47fc1-c89c-4df3-a29f-89f05c273a2f" class="w-full bg-[#FCF9F2] border border-[#C5A059]/30 rounded-lg px-3 py-2 text-xs font-mono text-wedding-bronze focus:outline-none select-all">
-              <button type="button" data-copy-pix class="px-4 py-2 rounded-lg btn-gold text-white text-xs font-medium uppercase tracking-wider whitespace-nowrap shadow-sm hover:shadow transition-all">
+              <button type="button" data-copy-pix class="px-4 py-2 rounded-lg btn-gold text-white text-xs font-medium uppercase tracking-wider whitespace-nowrap shadow-sm">
                 Copiar
               </button>
             </div>
           </div>
 
-          <div class="text-xs text-wedding-bronze-light space-y-2 pt-2 border-t border-[#C5A059]/15">
-            <div class="flex items-start gap-2">
-              <span class="w-4 h-4 rounded-full bg-[#FCF9F2] text-wedding-gold font-bold flex items-center justify-center text-[10px] shrink-0 mt-0.5 border border-[#C5A059]/30">1</span>
-              <span>Abra o app do seu banco e selecione a opção <strong>Pix &gt; Transferir com Chave</strong>.</span>
-            </div>
-            <div class="flex items-start gap-2">
-              <span class="w-4 h-4 rounded-full bg-[#FCF9F2] text-wedding-gold font-bold flex items-center justify-center text-[10px] shrink-0 mt-0.5 border border-[#C5A059]/30">2</span>
-              <span>Escolha o tipo <strong>Chave Aleatória</strong> e cole a chave copiada acima.</span>
-            </div>
-            <div class="flex items-start gap-2">
-              <span class="w-4 h-4 rounded-full bg-[#FCF9F2] text-wedding-gold font-bold flex items-center justify-center text-[10px] shrink-0 mt-0.5 border border-[#C5A059]/30">3</span>
-              <span>Confira o favorecido (<strong>Ana Luiza / Caio Henrique</strong>), digite o valor e confirme a transferência.</span>
-            </div>
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-1">
+            <a id="modal-whatsapp-link" href="https://wa.me/5561999999999" target="_blank" class="w-full sm:w-auto px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-medium tracking-wide flex items-center justify-center gap-2 transition-all shadow-sm">
+              <span>Avisar no WhatsApp</span>
+            </a>
+            <button type="button" onclick="document.getElementById('modal-close-btn').click()" class="w-full sm:w-auto px-6 py-2.5 rounded-full border border-[#C5A059]/40 text-wedding-bronze hover:bg-white text-xs tracking-wider uppercase font-medium transition-all">
+              Concluir
+            </button>
           </div>
         </div>
 
-        <!-- Ações do Modal -->
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
-          <a href="https://wa.me/5561999999999?text=Ol%C3%A1%20Ana%20Luiza%20e%20Caio!%20Acabei%20de%20enviar%20um%20presente%20para%20celebrar%20a%20uni%C3%A3o%20de%20voc%C3%AAs!%20Muitas%20felicidades!" target="_blank" class="w-full sm:w-auto px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-medium tracking-wide flex items-center justify-center gap-2 transition-all shadow-sm">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-            </svg>
-            <span>Avisar no WhatsApp</span>
-          </a>
+      </div>
+    </div>
+  </div>
 
-          <button type="button" onclick="document.getElementById('modal-close-btn').click()" class="w-full sm:w-auto px-6 py-2.5 rounded-full border border-[#C5A059]/40 text-wedding-bronze hover:bg-white text-xs tracking-wider uppercase font-medium transition-all">
-            Concluir
-          </button>
+  <!-- ============================================================== -->
+  <!-- LIGHTBOX DA GALERIA DE FOTOS (ETAPA 2)                         -->
+  <!-- ============================================================== -->
+  <div id="photo-lightbox" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4">
+    <button id="lightbox-close" type="button" class="absolute top-5 right-5 text-white/80 hover:text-white p-2 focus:outline-none" aria-label="Fechar galeria">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <button id="lightbox-prev" type="button" class="absolute left-3 sm:left-6 text-white/75 hover:text-white p-2 focus:outline-none" aria-label="Foto anterior">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+    </button>
+
+    <div class="max-w-3xl max-h-[85vh] flex flex-col items-center">
+      <img id="lightbox-img" src="" alt="" class="max-h-[75vh] w-auto rounded-lg shadow-2xl border border-[#C5A059]/40 object-contain">
+      <p id="lightbox-caption" class="text-white/90 font-editorial italic text-lg mt-3 text-center"></p>
+    </div>
+
+    <button id="lightbox-next" type="button" class="absolute right-3 sm:right-6 text-white/75 hover:text-white p-2 focus:outline-none" aria-label="Próxima foto">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PAINEL ADMIN (BANCO DE DADOS DE PRESENTES - APENAS ADMIN)      -->
+  <!-- ============================================================== -->
+  <div id="admin-modal" class="hidden fixed inset-0 z-50 overflow-y-auto">
+    <div id="admin-backdrop" class="fixed inset-0 bg-[#5B492A]/70 backdrop-blur-sm"></div>
+    <div class="flex min-h-full items-center justify-center p-4">
+      <div class="relative w-full max-w-4xl rounded-2xl bg-[#FCF9F2] p-6 sm:p-8 border border-[#C5A059]/40 shadow-2xl text-left">
+        <button id="admin-close-btn" type="button" class="absolute top-4 right-4 p-2 text-wedding-bronze hover:text-wedding-gold focus:outline-none" aria-label="Fechar Admin">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+
+        <!-- Tela de Login Admin -->
+        <div id="admin-login-view" class="max-w-sm mx-auto text-center py-6 space-y-4">
+          <span class="text-xs font-semibold tracking-[0.2em] text-wedding-gold uppercase">Acesso Restrito</span>
+          <h3 class="font-editorial text-2xl font-bold text-wedding-bronze">Painel dos Noivos (Admin)</h3>
+          <p class="text-xs text-wedding-bronze-light">Digite a senha de administrador para visualizar o banco de dados de presentes.</p>
+          <form id="admin-login-form" class="space-y-3">
+            <input id="admin-password-input" type="password" required placeholder="Senha de administrador" class="w-full bg-white border border-[#C5A059]/40 rounded-lg px-4 py-2.5 text-xs text-wedding-bronze focus:outline-none focus:border-wedding-gold text-center">
+            <p id="admin-login-error" class="hidden text-xs text-red-600">Senha incorreta. Tente novamente.</p>
+            <button type="submit" class="w-full py-2.5 rounded-full btn-gold text-white text-xs tracking-widest uppercase font-semibold">
+              Entrar
+            </button>
+          </form>
         </div>
 
+        <!-- Tela do Banco de Dados Admin -->
+        <div id="admin-dashboard-view" class="hidden space-y-5">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#C5A059]/25 pb-4">
+            <div>
+              <span class="text-[11px] font-semibold tracking-[0.2em] text-wedding-gold uppercase">Banco de Dados</span>
+              <h3 class="font-editorial text-2xl font-bold text-wedding-bronze">Controle de Presentes Recebidos</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <button id="admin-export-csv" type="button" class="px-4 py-2 rounded-full btn-gold text-white text-xs tracking-wider uppercase font-medium">
+                Exportar Excel (CSV)
+              </button>
+            </div>
+          </div>
+
+          <!-- Resumo -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div class="bg-white p-3.5 rounded-xl border border-[#C5A059]/25">
+              <span class="block text-[10px] uppercase tracking-wider text-wedding-bronze-light">Total de Registros</span>
+              <span id="admin-stat-total" class="font-editorial text-2xl font-bold text-wedding-gold">0</span>
+            </div>
+            <div class="bg-white p-3.5 rounded-xl border border-[#C5A059]/25">
+              <span class="block text-[10px] uppercase tracking-wider text-wedding-bronze-light">Itens Únicos Atendidos</span>
+              <span id="admin-stat-unique" class="font-editorial text-2xl font-bold text-wedding-gold">0</span>
+            </div>
+            <div class="bg-white p-3.5 rounded-xl border border-[#C5A059]/25 col-span-2 sm:col-span-1">
+              <span class="block text-[10px] uppercase tracking-wider text-wedding-bronze-light">Via Pix / Físico</span>
+              <span id="admin-stat-methods" class="font-editorial text-xl font-bold text-wedding-bronze">0 / 0</span>
+            </div>
+          </div>
+
+          <!-- Tabela -->
+          <div class="bg-white rounded-xl border border-[#C5A059]/30 overflow-x-auto max-h-[50vh]">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-[#FCF9F2] border-b border-[#C5A059]/25 text-[11px] uppercase tracking-wider text-wedding-bronze">
+                <tr>
+                  <th class="px-4 py-3">Data</th>
+                  <th class="px-4 py-3">Convidado</th>
+                  <th class="px-4 py-3">Presente</th>
+                  <th class="px-4 py-3">Forma</th>
+                  <th class="px-4 py-3">Mensagem</th>
+                  <th class="px-4 py-3 text-right">Ação</th>
+                </tr>
+              </thead>
+              <tbody id="admin-table-body" class="divide-y divide-[#C5A059]/15 text-wedding-bronze-light">
+                <!-- Preenchido via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>

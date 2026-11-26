@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initAudioPlayer();
   initCalendarModal();
+  initGalleryLightbox();
   initGiftList();
+  initAdminPanel();
 });
 
 /* -------------------------------------------------------------
@@ -236,55 +238,253 @@ function downloadIcsFile() {
 }
 
 /* -------------------------------------------------------------
- * 5. LISTA DE PRESENTES, PIX E MODAL INTERATIVO
+ * 5. LISTA DE PRESENTES OFICIAL (PLANILHA) + PIX + BANCO LOCAL
  * ----------------------------------------------------------- */
 const OFFICIAL_PIX_KEY = "daa47fc1-c89c-4df3-a29f-89f05c273a2f";
+const GIFT_DB_STORAGE_KEY = "casamento_ac_gifts_db_v1";
+
+// Lista oficial extraída da planilha COMPRAS-APTO.xlsx (itens a conquistar)
+const WEDDING_GIFTS = [
+  { id: "talheres", name: "Talheres", category: "Cozinha" },
+  { id: "sofa", name: "Sofá", category: "Móveis & Casa" },
+  { id: "tapetes", name: "Tapetes", category: "Móveis & Casa" },
+  { id: "potes-hermeticos", name: "Potes Herméticos", category: "Cozinha" },
+  { id: "aparelho-de-jantar", name: "Aparelho de Jantar", category: "Cozinha" },
+  { id: "chaleira-eletrica", name: "Chaleira Elétrica", category: "Eletrodomésticos" },
+  { id: "tabua-de-passar", name: "Tábua de Passar", category: "Enxoval & Lavanderia" },
+  { id: "aspirador-de-po", name: "Aspirador de Pó", category: "Eletrodomésticos" },
+  { id: "guarda-roupa", name: "Guarda Roupa", category: "Móveis & Casa" },
+  { id: "base-cama-bau-queen", name: "Base Cama de Baú Queen", category: "Móveis & Casa" },
+  { id: "armario-da-cozinha", name: "Armário da Cozinha", category: "Móveis & Casa" },
+  { id: "bancada-do-escritorio", name: "Bancada do Escritório", category: "Móveis & Casa" },
+  { id: "banquetas-cozinha", name: "Banquetas Cozinha", category: "Móveis & Casa" },
+  { id: "ar-condicionado", name: "Ar Condicionado", category: "Eletrodomésticos" },
+  { id: "garrafa-de-cafe", name: "Garrafa de Café", category: "Cozinha" },
+  { id: "protetor-colchao", name: "Protetor Colchão", category: "Enxoval & Lavanderia" },
+  { id: "jarra-de-suco", name: "Jarra de Suco", category: "Cozinha" },
+  { id: "porta-mantimentos", name: "Porta Mantimentos", category: "Cozinha" },
+  { id: "marinex", name: "Marinex", category: "Cozinha" },
+  { id: "ralador", name: "Ralador", category: "Cozinha" },
+  { id: "abridor-de-lata", name: "Abridor de Lata", category: "Cozinha" },
+  { id: "porta-saco", name: "Porta Saco", category: "Enxoval & Lavanderia" },
+  { id: "varal-de-chao", name: "Varal de Chão", category: "Enxoval & Lavanderia" },
+  { id: "filtro-de-agua", name: "Filtro de Água", category: "Eletrodomésticos" },
+  { id: "panela-pressao-eletrica", name: "Panela de Pressão Elétrica", category: "Eletrodomésticos" },
+  { id: "cobertor", name: "Cobertor", category: "Enxoval & Lavanderia" },
+  { id: "luva-termica", name: "Luva Térmica", category: "Cozinha" },
+  { id: "assadeiras", name: "Assadeiras", category: "Cozinha" },
+  { id: "liquidificador", name: "Liquidificador", category: "Eletrodomésticos" },
+  { id: "multiprocessador", name: "Multiprocessador", category: "Eletrodomésticos" },
+  { id: "pano-de-chao", name: "Pano de Chão", category: "Enxoval & Lavanderia" },
+  { id: "cortina", name: "Cortina", category: "Móveis & Casa" },
+  { id: "edredom", name: "Edredom", category: "Enxoval & Lavanderia" },
+  { id: "lixeiras", name: "Lixeiras", category: "Enxoval & Lavanderia" },
+  { id: "rodo-vassoura-pa", name: "Rodo / Vassoura / Pá", category: "Enxoval & Lavanderia" },
+  { id: "sanduicheira-grill", name: "Sanduicheira Grill", category: "Eletrodomésticos" },
+  { id: "cesto-de-roupa-suja", name: "Cesto de Roupa Suja", category: "Enxoval & Lavanderia" },
+  { id: "peneiras", name: "Peneiras", category: "Cozinha" },
+  { id: "escorredor-de-macarrao", name: "Escorredor de Macarrão", category: "Cozinha" }
+];
+
+const GiftDatabase = {
+  getAll() {
+    try {
+      const raw = localStorage.getItem(GIFT_DB_STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      console.error("Erro ao ler banco de presentes:", e);
+      return [];
+    }
+  },
+  add(entry) {
+    const records = this.getAll();
+    records.unshift({
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+      ...entry,
+      createdAt: new Date().toISOString()
+    });
+    localStorage.setItem(GIFT_DB_STORAGE_KEY, JSON.stringify(records));
+    return records;
+  },
+  remove(id) {
+    const records = this.getAll().filter(r => r.id !== id);
+    localStorage.setItem(GIFT_DB_STORAGE_KEY, JSON.stringify(records));
+    return records;
+  },
+  getCountByItem(itemId) {
+    return this.getAll().filter(r => r.itemId === itemId).length;
+  }
+};
 
 function initGiftList() {
   const toast = document.getElementById('pix-toast');
-  const toastMessage = document.getElementById('pix-toast-message');
   const modal = document.getElementById('gift-modal');
   const modalTitle = document.getElementById('modal-gift-title');
-  const modalValue = document.getElementById('modal-gift-value');
+  const modalCategory = document.getElementById('modal-gift-category');
+  const modalAlreadyNote = document.getElementById('modal-already-selected-note');
   const modalPixKey = document.getElementById('modal-pix-key');
   const modalCloseBtn = document.getElementById('modal-close-btn');
   const modalBackdrop = document.getElementById('modal-backdrop');
+  const giftForm = document.getElementById('gift-confirm-form');
+  const successView = document.getElementById('gift-success-view');
+  const guestNameInput = document.getElementById('gift-guest-name');
+  const guestMessageInput = document.getElementById('gift-guest-message');
+  const whatsappLink = document.getElementById('modal-whatsapp-link');
+  const giftsGrid = document.getElementById('gifts-grid');
+  const filterPills = document.querySelectorAll('.filter-pill');
+  const searchInput = document.getElementById('gift-search-input');
+
+  let activeCategory = 'todos';
+  let searchQuery = '';
+  let currentSelectedGift = null;
+
+  function renderGifts() {
+    if (!giftsGrid) return;
+
+    const filtered = WEDDING_GIFTS.filter(item => {
+      const matchesCat = activeCategory === 'todos' || item.category === activeCategory;
+      const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesCat && matchesSearch;
+    });
+
+    if (filtered.length === 0) {
+      giftsGrid.innerHTML = `
+        <div class="col-span-full py-10 text-center text-xs text-wedding-bronze-light">
+          Nenhum presente encontrado para "${searchQuery}".
+        </div>
+      `;
+      return;
+    }
+
+    giftsGrid.innerHTML = filtered.map(item => {
+      const count = GiftDatabase.getCountByItem(item.id);
+      const isSelected = count > 0;
+
+      return `
+        <div class="gift-card bg-white/90 backdrop-blur rounded-2xl p-5 border ${isSelected ? 'border-[#C5A059]/60 bg-[#FCF9F2]/60' : 'border-[#C5A059]/25'} flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#FCF9F2] text-wedding-gold border border-[#C5A059]/30 uppercase tracking-wider">
+                ${item.category}
+              </span>
+              ${isSelected ? `
+                <span class="inline-flex items-center gap-1 text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#C5A059]/15 text-wedding-bronze border border-[#C5A059]/40">
+                  <svg class="w-3 h-3 text-wedding-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Já selecionado${count > 1 ? ` (${count})` : ''}
+                </span>
+              ` : ''}
+            </div>
+            <h4 class="font-editorial font-bold text-lg text-wedding-bronze leading-snug">${item.name}</h4>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-[#C5A059]/15 flex items-center justify-between">
+            <button type="button" data-select-gift="${item.id}" class="text-xs font-semibold uppercase tracking-wider text-wedding-gold hover:text-wedding-bronze transition-colors flex items-center gap-1.5">
+              <span>${isSelected ? 'Presentear novamente' : 'Selecionar presente'}</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Reatribui listeners dos cards
+    giftsGrid.querySelectorAll('[data-select-gift]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const giftId = btn.getAttribute('data-select-gift');
+        const giftObj = WEDDING_GIFTS.find(g => g.id === giftId);
+        if (giftObj) openModalForGift(giftObj);
+      });
+    });
+  }
+
+  function openModalForGift(giftObj) {
+    currentSelectedGift = giftObj;
+    const count = GiftDatabase.getCountByItem(giftObj.id);
+
+    if (modalTitle) modalTitle.textContent = giftObj.name;
+    if (modalCategory) modalCategory.textContent = giftObj.category;
+    if (modalPixKey) modalPixKey.value = OFFICIAL_PIX_KEY;
+
+    if (modalAlreadyNote) {
+      modalAlreadyNote.classList.toggle('hidden', count === 0);
+    }
+
+    if (giftForm) {
+      giftForm.reset();
+      giftForm.classList.remove('hidden');
+    }
+    if (successView) {
+      successView.classList.add('hidden');
+    }
+
+    openGiftModal();
+  }
+
+  // Envio do formulário de confirmação de presente
+  if (giftForm) {
+    giftForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!currentSelectedGift) return;
+
+      const guestName = guestNameInput ? guestNameInput.value.trim() : '';
+      if (!guestName) return;
+
+      const methodEl = giftForm.querySelector('input[name="gift-method"]:checked');
+      const method = methodEl ? methodEl.value : 'Pix';
+      const message = guestMessageInput ? guestMessageInput.value.trim() : '';
+
+      GiftDatabase.add({
+        itemId: currentSelectedGift.id,
+        itemName: currentSelectedGift.name,
+        guestName,
+        method,
+        message
+      });
+
+      if (whatsappLink) {
+        const msgText = encodeURIComponent(
+          `Olá Ana Luiza e Caio! Aqui é ${guestName}. Selecionei o presente "${currentSelectedGift.name}" (${method}) na lista do casamento!${message ? ' Mensagem: ' + message : ''}`
+        );
+        whatsappLink.href = `https://wa.me/5561999999999?text=${msgText}`;
+      }
+
+      giftForm.classList.add('hidden');
+      if (successView) successView.classList.remove('hidden');
+      renderGifts();
+    });
+  }
+
+  // Filtros e Busca
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      filterPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      activeCategory = pill.getAttribute('data-category') || 'todos';
+      renderGifts();
+    });
+  });
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderGifts();
+    });
+  }
 
   // Copiar chave Pix dos botões com data-copy-pix
-  const copyButtons = document.querySelectorAll('[data-copy-pix]');
-  copyButtons.forEach(btn => {
+  document.querySelectorAll('[data-copy-pix]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       copyPixToClipboard(OFFICIAL_PIX_KEY, btn);
     });
   });
 
-  // Botões de "Presentear" dos cards de presente
-  const giftButtons = document.querySelectorAll('.gift-action-btn');
-  giftButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const card = btn.closest('.gift-card');
-      if (!card || !modal) return;
-
-      const title = card.getAttribute('data-title') || 'Cota de Presente';
-      const value = card.getAttribute('data-value') || '';
-
-      if (modalTitle) modalTitle.textContent = title;
-      if (modalValue) modalValue.textContent = value;
-      if (modalPixKey) modalPixKey.value = OFFICIAL_PIX_KEY;
-
-      openGiftModal();
-    });
-  });
-
-  // Fechar modal
-  if (modalCloseBtn) {
-    modalCloseBtn.addEventListener('click', closeGiftModal);
-  }
-
-  if (modalBackdrop) {
-    modalBackdrop.addEventListener('click', closeGiftModal);
-  }
+  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeGiftModal);
+  if (modalBackdrop) modalBackdrop.addEventListener('click', closeGiftModal);
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
@@ -292,7 +492,6 @@ function initGiftList() {
     }
   });
 
-  // Função para copiar com suporte robusto
   function copyPixToClipboard(text, triggerBtn) {
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(text).then(() => {
@@ -317,16 +516,13 @@ function initGiftList() {
       textArea.select();
       const successful = document.execCommand('copy');
       document.body.removeChild(textArea);
-      if (successful) {
-        showCopyFeedback(triggerBtn);
-      }
+      if (successful) showCopyFeedback(triggerBtn);
     } catch (err) {
       console.error('Falha ao copiar:', err);
     }
   }
 
   function showCopyFeedback(triggerBtn) {
-    // Altera texto do botão temporariamente se aplicável
     if (triggerBtn) {
       const originalHTML = triggerBtn.innerHTML;
       triggerBtn.classList.add('bg-green-600', 'text-white', 'border-green-600');
@@ -334,20 +530,17 @@ function initGiftList() {
         <svg class="w-4 h-4 text-white inline-block mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"></path>
         </svg>
-        <span>Chave Copiada!</span>
+        <span>Copiado!</span>
       `;
-
       setTimeout(() => {
         triggerBtn.innerHTML = originalHTML;
         triggerBtn.classList.remove('bg-green-600', 'text-white', 'border-green-600');
       }, 3000);
     }
 
-    // Exibe Toast
     if (toast) {
       toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-8');
       toast.classList.add('show', 'opacity-100', 'translate-y-0');
-
       setTimeout(() => {
         toast.classList.remove('show', 'opacity-100', 'translate-y-0');
         toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-8');
@@ -380,5 +573,220 @@ function initGiftList() {
       document.body.classList.remove('overflow-hidden');
     }, 250);
   }
+
+  // Renderização inicial
+  const countTodos = document.getElementById('count-todos');
+  if (countTodos) countTodos.textContent = WEDDING_GIFTS.length;
+  renderGifts();
+
+  // Expor re-render para o painel Admin atualizar quando excluir registro
+  window.__rerenderGiftsGrid = renderGifts;
+}
+
+/* -------------------------------------------------------------
+ * 6. GALERIA LIGHTBOX (ETAPA 2)
+ * ----------------------------------------------------------- */
+function initGalleryLightbox() {
+  const lightbox = document.getElementById('photo-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const closeBtn = document.getElementById('lightbox-close');
+  const prevBtn = document.getElementById('lightbox-prev');
+  const nextBtn = document.getElementById('lightbox-next');
+  const items = Array.from(document.querySelectorAll('.gallery-item'));
+
+  if (!lightbox || items.length === 0) return;
+
+  let currentIdx = 0;
+
+  function showPhoto(idx) {
+    currentIdx = (idx + items.length) % items.length;
+    const el = items[currentIdx];
+    const src = el.getAttribute('data-photo');
+    const caption = el.getAttribute('data-caption') || '';
+    if (lightboxImg) lightboxImg.src = src;
+    if (lightboxCaption) lightboxCaption.textContent = caption;
+  }
+
+  items.forEach((item, idx) => {
+    item.addEventListener('click', () => {
+      showPhoto(idx);
+      lightbox.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+  if (prevBtn) prevBtn.addEventListener('click', () => showPhoto(currentIdx - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => showPhoto(currentIdx + 1));
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('hidden')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPhoto(currentIdx - 1);
+    if (e.key === 'ArrowRight') showPhoto(currentIdx + 1);
+  });
+}
+
+/* -------------------------------------------------------------
+ * 7. PAINEL ADMIN (BANCO DE DADOS RESTRITO AOS NOIVOS)
+ * ----------------------------------------------------------- */
+const ADMIN_PIN = "09022026";
+
+function initAdminPanel() {
+  const openBtn = document.getElementById('open-admin-btn');
+  const modal = document.getElementById('admin-modal');
+  const backdrop = document.getElementById('admin-backdrop');
+  const closeBtn = document.getElementById('admin-close-btn');
+  const loginView = document.getElementById('admin-login-view');
+  const dashboardView = document.getElementById('admin-dashboard-view');
+  const loginForm = document.getElementById('admin-login-form');
+  const passwordInput = document.getElementById('admin-password-input');
+  const loginError = document.getElementById('admin-login-error');
+  const tableBody = document.getElementById('admin-table-body');
+  const exportBtn = document.getElementById('admin-export-csv');
+
+  if (!modal) return;
+
+  let isAuthenticated = false;
+
+  function openAdmin() {
+    modal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+    if (isAuthenticated) {
+      renderDashboard();
+    } else if (passwordInput) {
+      passwordInput.value = '';
+      if (loginError) loginError.classList.add('hidden');
+      setTimeout(() => passwordInput.focus(), 50);
+    }
+  }
+
+  function closeAdmin() {
+    modal.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  }
+
+  function renderDashboard() {
+    const records = GiftDatabase.getAll();
+    const statTotal = document.getElementById('admin-stat-total');
+    const statUnique = document.getElementById('admin-stat-unique');
+    const statMethods = document.getElementById('admin-stat-methods');
+
+    const uniqueItems = new Set(records.map(r => r.itemId)).size;
+    const pixCount = records.filter(r => r.method === 'Pix').length;
+    const physCount = records.filter(r => r.method !== 'Pix').length;
+
+    if (statTotal) statTotal.textContent = records.length;
+    if (statUnique) statUnique.textContent = uniqueItems;
+    if (statMethods) statMethods.textContent = `${pixCount} / ${physCount}`;
+
+    if (!tableBody) return;
+
+    if (records.length === 0) {
+      tableBody.innerHTML = `
+        <tr>
+          <td colspan="6" class="px-4 py-8 text-center text-wedding-bronze-light italic">
+            Nenhum presente registrado ainda.
+          </td>
+        </tr>
+      `;
+      return;
+    }
+
+    tableBody.innerHTML = records.map(r => {
+      const dateStr = new Date(r.createdAt).toLocaleString('pt-BR', {
+        day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit'
+      });
+      return `
+        <tr class="hover:bg-[#FCF9F2]/70">
+          <td class="px-4 py-3 whitespace-nowrap">${dateStr}</td>
+          <td class="px-4 py-3 font-medium text-wedding-bronze">${escapeHtml(r.guestName)}</td>
+          <td class="px-4 py-3 font-semibold text-wedding-gold">${escapeHtml(r.itemName)}</td>
+          <td class="px-4 py-3 whitespace-nowrap">${escapeHtml(r.method)}</td>
+          <td class="px-4 py-3 max-w-xs truncate" title="${escapeHtml(r.message || '')}">${escapeHtml(r.message || '—')}</td>
+          <td class="px-4 py-3 text-right">
+            <button type="button" data-delete-record="${r.id}" class="text-red-500 hover:text-red-700 text-[11px] uppercase tracking-wider font-medium">
+              Excluir
+            </button>
+          </td>
+        </tr>
+      `;
+    }).join('');
+
+    tableBody.querySelectorAll('[data-delete-record]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-delete-record');
+        GiftDatabase.remove(id);
+        renderDashboard();
+        if (window.__rerenderGiftsGrid) window.__rerenderGiftsGrid();
+      });
+    });
+  }
+
+  if (openBtn) openBtn.addEventListener('click', openAdmin);
+  if (closeBtn) closeBtn.addEventListener('click', closeAdmin);
+  if (backdrop) backdrop.addEventListener('click', closeAdmin);
+
+  if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (passwordInput && passwordInput.value === ADMIN_PIN) {
+        isAuthenticated = true;
+        if (loginView) loginView.classList.add('hidden');
+        if (dashboardView) dashboardView.classList.remove('hidden');
+        renderDashboard();
+      } else if (loginError) {
+        loginError.classList.remove('hidden');
+      }
+    });
+  }
+
+  if (exportBtn) {
+    exportBtn.addEventListener('click', () => {
+      const records = GiftDatabase.getAll();
+      const header = ['Data', 'Convidado', 'Presente', 'Forma', 'Mensagem'];
+      const rows = records.map(r => [
+        new Date(r.createdAt).toLocaleString('pt-BR'),
+        `"${(r.guestName || '').replace(/"/g, '""')}"`,
+        `"${(r.itemName || '').replace(/"/g, '""')}"`,
+        `"${(r.method || '').replace(/"/g, '""')}"`,
+        `"${(r.message || '').replace(/"/g, '""')}"`
+      ].join(';'));
+      const csv = '\uFEFF' + [header.join(';'), ...rows].join('\r\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'presentes-casamento-ana-caio.csv';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+  }
+
+  // Abre direto se acessar ?admin=1
+  if (new URLSearchParams(window.location.search).get('admin') === '1') {
+    openAdmin();
+  }
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 

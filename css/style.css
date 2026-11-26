@@ -169,3 +169,26 @@ html {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
 
+/* Mistura do Monograma sobre fundo marfim/branco */
+.monogram-blend {
+  mix-blend-mode: multiply;
+}
+
+/* Galeria de Fotos */
+.gallery-item img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Filtros da Lista de Presentes */
+.filter-pill.active {
+  background: linear-gradient(135deg, #C5A059 0%, #B89249 100%);
+  color: #FFFFFF;
+  border-color: #C5A059;
+  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.25);
+}
+
+
